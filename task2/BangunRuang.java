@@ -1,8 +1,8 @@
 package task2;
 
-abstract class BangunRuang {
+abstract interface BangunRuang {
     public abstract void gambarBangun();
     public abstract void karakteristikBangun();
-    public abstract void luasPermukaan();
-    public abstract void volume();
+    public abstract double luasPermukaan();
+    public abstract double volume();
 }
