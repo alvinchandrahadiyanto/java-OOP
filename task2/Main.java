@@ -2,8 +2,6 @@ package task2;
 
 import java.util.Scanner;
 
-// Lingkaran orang = new Lingkaran();
-//         System.out.println(orang.kelilingBangun(10));
 
 public class Main {
     static Scanner input = new Scanner(System.in);
