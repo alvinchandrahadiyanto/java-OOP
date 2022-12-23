@@ -31,7 +31,7 @@ public class Main {
       switch (opsi) {
         case "1":
           System.out.println(" ");
-          System.out.print("Masukan Sisi ");
+          System.out.print("Masukan sisi persegi ");
           sisi = input.nextDouble();
           Persegi pers = new Persegi();
           pers.gambarBangun();
@@ -43,11 +43,11 @@ public class Main {
 
         case "2":
           System.out.println(" ");
-          System.out.print("Masukan sisi 1 ");
+          System.out.print("Masukan sisi 1 segitiga ");
           a = input.nextDouble();
-          System.out.print("Masukan sisi 2 ");
+          System.out.print("Masukan sisi 2 segitiga ");
           b = input.nextDouble();
-          System.out.print("Masukan sisi 3 ");
+          System.out.print("Masukan sisi 3 segitiga ");
           c = input.nextDouble();
           Segitiga seg = new Segitiga();
           seg.gambarBangun();
@@ -59,7 +59,7 @@ public class Main {
         
         case "3":
           System.out.println(" ");
-          System.out.print("Masukan jari jari ");
+          System.out.print("Masukan jari jari lingkaran ");
           jari = input.nextDouble();
           Lingkaran ling = new Lingkaran();
           ling.gambarBangun();
@@ -71,7 +71,7 @@ public class Main {
         
         case "4":
           System.out.println(" ");
-          System.out.print("Masukan Sisi ");
+          System.out.print("Masukan sisi kubus ");
           sisi = input.nextDouble();
           Kubus kbs = new Kubus();
           kbs.gambarBangun();
@@ -83,13 +83,13 @@ public class Main {
         
         case "5":
           System.out.println(" ");
-          System.out.print("Masukan sisi 1 ");
+          System.out.print("Masukan sisi 1 alas prisma ");
           a = input.nextDouble();
-          System.out.print("Masukan sisi 2 ");
+          System.out.print("Masukan sisi 2 alas prisma ");
           b = input.nextDouble();
-          System.out.print("Masukan sisi 3 ");
+          System.out.print("Masukan sisi 3 alas prisma ");
           c = input.nextDouble();
-          System.out.print("Masukan tinggi ");
+          System.out.print("Masukan tinggi prisma ");
           tinggi = input.nextDouble();
           System.out.println(" ");
           Prisma prsm = new Prisma();
@@ -101,7 +101,7 @@ public class Main {
 
         case "6":
           System.out.println(" ");
-          System.out.print("Masukan jari jari ");
+          System.out.print("Masukan jari jari bola ");
           jari = input.nextDouble();
           Bola bl = new Bola();
           bl.gambarBangun();
