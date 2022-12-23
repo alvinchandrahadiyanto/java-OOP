@@ -30,7 +30,7 @@ public class Bola extends Lingkaran implements BangunRuang{
 
     public double volume(double jari) {
         // TODO Auto-generated method stub
-        return Math.PI*jari*jari*jari;
+        return Math.PI*jari*jari*jari*4/3;
     }
     
 }
