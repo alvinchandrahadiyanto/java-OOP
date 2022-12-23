@@ -8,7 +8,9 @@ public class Kubus extends Persegi implements BangunRuang{
     }
 
     public void karakteristikBangun(){
-        System.out.println("Memiliki 12 rusuk yang sama panjang");
+        System.out.println("Karakteristik Kubus: ");
+        System.out.println("- Memiliki 12 rusuk yang sama panjang");
+        System.out.println("- Mempunyai 8 titik sudut");
     }
 
     @Override

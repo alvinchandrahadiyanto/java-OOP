@@ -8,7 +8,9 @@ public class Bola extends Lingkaran implements BangunRuang{
     }
 
     public void karakteristikBangun(){
-        System.out.println("Tidak memiliki sudut");
+        System.out.println("Karakteristik Bola: ");
+        System.out.println("- Dibatasi oleh sebuah kulit bola");
+        System.out.println("- Tidak memiliki rusuk dan titik sudut");
     }
 
     @Override

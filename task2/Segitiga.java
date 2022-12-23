@@ -11,7 +11,9 @@ public class Segitiga extends BangunDatar{
     @Override
     public void karakteristikBangun() {
         // TODO Auto-generated method stub
-        System.out.println("Hanya memiliki 3 sisi");
+        System.out.println("Karakteristik Segitiga: ");
+        System.out.println("- Hanya memiliki 3 sisi");
+        System.out.println("- Jumlah sudut ada 180 derajat");
     }
 
     @Override

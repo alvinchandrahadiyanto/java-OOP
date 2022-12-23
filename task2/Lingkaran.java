@@ -11,7 +11,9 @@ public class Lingkaran extends BangunDatar {
     @Override
     public void karakteristikBangun() {
         // TODO Auto-generated method stub
-        System.out.println("Tidak memiliki sudut");
+        System.out.println("Karakteristik Lingkaran: ");
+        System.out.println("- Tidak memiliki sudut");
+        System.out.println("- Merupakan bentuk yang simetris dari segala arah");
     }
 
     @Override

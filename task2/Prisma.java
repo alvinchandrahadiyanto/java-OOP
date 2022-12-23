@@ -8,7 +8,9 @@ public class Prisma extends Segitiga implements BangunRuang{
     }
 
     public void karakteristikBangun(){
-        System.out.println("Memiliki 6 rusuk");
+        System.out.println("Karakteristik Prisma: ");
+        System.out.println("- Memiliki 5 sisi, 3 sisi di samping yang bentuknya persegi panjang dan 2 sisi alas dan atap yang bentuknya segitiga");
+        System.out.println("- Prisma segitiga mempunyai 6 titik sudut");
     }
 
     @Override
