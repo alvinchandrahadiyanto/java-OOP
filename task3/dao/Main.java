@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class Main {
     static Scanner input = new Scanner(System.in);
     static String opsi;
+    static BookController funcBook = new BookController();
 
   public static void menuApp() {
     System.out.println("=== SISTEM BUKU MANAGEMENT ===");
@@ -25,28 +26,32 @@ public class Main {
 
       switch (opsi) {
         case "1":
-        
-          break;
+            funcBook.getBooks();
+            break;
 
         case "2":
-          
-          break;
+            funcBook.getBookById();
+            break;
 
         case "3":
-
-          break;
+            funcBook.saveBook();
+            break;
 
         case "4":
-
-          break;
+            funcBook.updateBook();
+            break;
+        
+        case "5":
+            funcBook.deleteBook();
+            break;
 
         default:
           System.out.println("Pilihan tidak tersedia!");
           break;
       }
 
-      System.out.print("Apakah ingin keluar aplikasi? (y|n)");
-      opsi = input.nextLine();
+        System.out.print("Apakah ingin keluar aplikasi? (y|n)");
+        opsi = input.nextLine();
     } while (opsi.equalsIgnoreCase("n"));
 
     System.out.println("Terima kasih. Sampai jumpa kembali!");
