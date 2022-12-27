@@ -16,15 +16,27 @@ public class BookController {
   static Integer idbook;
 
   public void getBooks(){
-    System.out.println("Semua Data Buku");
-    System.out.println(bookDao.findAll());
+    if(bookDao.findAll().isEmpty()){
+      System.out.println("Buku Kosong");
+    }else{
+      System.out.println("Semua Data Buku");
+      System.out.println(bookDao.findAll());
+    }
   }
 
   public void getBookById(){
-    System.out.println("Cari Data Buku");
-    System.out.print("Pilihan ID Buku yang akan dicari: ");
-    idbook = Integer.parseInt(input.nextLine());
-    System.out.println(bookDao.findById(idbook));
+    if(bookDao.findAll().isEmpty()){
+      System.out.println("Buku Kosong");
+    }else{
+      System.out.println("Cari Data Buku");
+      System.out.print("Pilihan ID Buku yang akan dicari: ");
+      idbook = Integer.parseInt(input.nextLine());
+      if(idbook>bookDao.findAll().size()){
+        System.out.println("Id tidak ada");
+      }else{
+        System.out.println(bookDao.findById(idbook));
+      }
+    }
   }
 
   public void saveBook(){
@@ -41,29 +53,42 @@ public class BookController {
   }
 
   public void updateBook(){
-    System.out.println(bookDao.findAll());
-    System.out.println("Edit Data Buku");
-    System.out.print("Pilihan ID Buku yang akan diedit: ");
-    idbook = Integer.parseInt(input.nextLine());
-    System.out.print("Edit Judul Buku: ");
-    judul = input.nextLine();
-    System.out.print("Edit Pembuat Buku: ");
-    pembuat = input.nextLine();
+    if(bookDao.findAll().isEmpty()){
+      System.out.println("Buku Kosong");
+    }else{
+      System.out.println(bookDao.findAll());
+      System.out.println("Edit Data Buku");
+      System.out.print("Pilihan ID Buku yang akan diedit: ");
+      idbook = Integer.parseInt(input.nextLine());
+      if(idbook>bookDao.findAll().size()){
+        System.out.println("Id tidak ada");
+      }else{
+        System.out.print("Edit Judul Buku: ");
+        judul = input.nextLine();
+        System.out.print("Edit Pembuat Buku: ");
+        pembuat = input.nextLine();
           
-    book = new Book();
-    book.setTitle(judul);
-    book.setAuthor(pembuat);
-    // save data
-    bookDao.update(book,idbook);
-    System.out.println(bookDao.findAll());
+        book = new Book();
+        book.setTitle(judul);
+        book.setAuthor(pembuat);
+        // save data
+        bookDao.update(book,idbook);
+        System.out.println(bookDao.findAll());
+      }
+      
+    }
   }
 
   public void deleteBook(){
-    System.out.println(bookDao.findAll());
-    System.out.println("Hapus Data Buku");
-    System.out.print("Pilihan ID Buku yang akan dihapus: ");
-    idbook = input.nextInt();
-    bookDao.delete(idbook);
-    System.out.println(bookDao.findAll());
+    if(bookDao.findAll().isEmpty()){
+      System.out.println("Buku Kosong");
+    }else{
+      System.out.println(bookDao.findAll());
+      System.out.println("Hapus Data Buku");
+      System.out.print("Pilihan ID Buku yang akan dihapus: ");
+      idbook = input.nextInt();
+      bookDao.delete(idbook);
+      System.out.println(bookDao.findAll());
+    }
   }
 }
