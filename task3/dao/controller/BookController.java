@@ -7,7 +7,7 @@ import dao.services.DaoService;
 import java.util.Scanner;
 
 public class BookController {
-  private static DaoService<Book, Integer> bookDao = new BookRepository();
+  private DaoService<Book, Integer> bookDao = new BookRepository();
   Book book = new Book();
   static Scanner input = new Scanner(System.in);
   static String opsi;
