@@ -75,7 +75,6 @@ public class BookController {
         bookDao.update(book,idbook);
         System.out.println(bookDao.findAll());
       }
-      
     }
   }
 
@@ -87,8 +86,12 @@ public class BookController {
       System.out.println("Hapus Data Buku");
       System.out.print("Pilihan ID Buku yang akan dihapus: ");
       idbook = input.nextInt();
-      bookDao.delete(idbook);
-      System.out.println(bookDao.findAll());
+      if(idbook>bookDao.findAll().size()){
+        System.out.println("Id tidak ada");
+      }else{
+        bookDao.delete(idbook);
+        System.out.println(bookDao.findAll());
+      }
     }
   }
 }
