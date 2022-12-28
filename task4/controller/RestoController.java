@@ -75,7 +75,11 @@ public class RestoController {
             if (jumlah>0) {
                 pesanan.add(new Order(makanan.get(pilihMakan).getTitle(), makanan.get(pilihMakan).getPrice(), jumlah));
             } else {
-                System.out.println("jumkah yang dimasukan salah");
+                System.out.println("jumlah yang dimasukan salah");
+            }
+            for (int i = 0; i<pesanan.size(); i++){
+                System.out.print(i+1);
+                System.out.println(". "+pesanan.get(i).toString());
             }
             System.out.print("Apakah ingin menambah pesanan? (y/n): ");
             lanjut = input.nextLine();
