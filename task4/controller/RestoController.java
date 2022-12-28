@@ -90,15 +90,18 @@ public class RestoController {
                     } else {
                         System.out.println("jumlah yang dimasukan salah");
                     }
-                    for (int i = 0; i<pesanan.size(); i++){
-                        System.out.print(i+1);
-                        System.out.println(". "+pesanan.get(i).toString());
+                    if (!pesanan.isEmpty()) {
+                        System.out.println("======== Pesanan Anda ========");
+                        for (int i = 0; i<pesanan.size(); i++){
+                            System.out.print(i+1);
+                            System.out.println(". "+pesanan.get(i).toString());
+                        }
                     }
                 } else {
-                    System.out.println("Pesanan sudah ada");
+                    System.out.println("Pesanan sudah ada!");
                 }
             } else {
-                System.out.println("Pilihan pesanan salah");
+                System.out.println("Pilihan pesanan salah!");
             }
             System.out.print("Apakah ingin menambah makanan? (y/n): ");
             lanjut = input.nextLine();
@@ -133,15 +136,18 @@ public class RestoController {
                     } else {
                         System.out.println("jumlah yang dimasukan salah");
                     }
-                    for (int i = 0; i<pesanan.size(); i++){
-                        System.out.print(i+1);
-                        System.out.println(". "+pesanan.get(i).toString());
+                    if (!pesanan.isEmpty()) {
+                        System.out.println("======== Pesanan Anda ========");
+                        for (int i = 0; i<pesanan.size(); i++){
+                            System.out.print(i+1);
+                            System.out.println(". "+pesanan.get(i).toString());
+                        }
                     }
                 } else {
-                    System.out.println("Pesanan sudah ada");
+                    System.out.println("Pesanan sudah ada!");
                 }
             } else {
-                System.out.println("Pilihan pesanan salah");
+                System.out.println("Pilihan pesanan salah!");
             }
             System.out.print("Apakah ingin menambah minuman? (y/n): ");
             lanjut = input.nextLine();
@@ -176,15 +182,18 @@ public class RestoController {
                     } else {
                         System.out.println("jumlah yang dimasukan salah");
                     }
-                    for (int i = 0; i<pesanan.size(); i++){
-                        System.out.print(i+1);
-                        System.out.println(". "+pesanan.get(i).toString());
+                    if (!pesanan.isEmpty()) {
+                        System.out.println("======== Pesanan Anda ========");
+                        for (int i = 0; i<pesanan.size(); i++){
+                            System.out.print(i+1);
+                            System.out.println(". "+pesanan.get(i).toString());
+                        }
                     }
                 } else {
-                    System.out.println("Pesanan sudah ada");
+                    System.out.println("Pesanan sudah ada!");
                 }
             } else {
-                System.out.println("Pilihan pesanan salah");
+                System.out.println("Pilihan pesanan salah!");
             }
             System.out.print("Apakah ingin menambah paket? (y/n): ");
             lanjut = input.nextLine();
@@ -213,7 +222,7 @@ public class RestoController {
                 pesanan.get(pilih).setJlmhPesan(jumlah);
             }
         } else {
-            System.out.println("Pilihan pesanan salah");
+            System.out.println("Pilihan pesanan salah!");
         }
     }
 
@@ -233,34 +242,50 @@ public class RestoController {
                 pesanan.remove(pilih);
             }
         } else {
-            System.out.println("Pilihan pesanan salah");
+            System.out.println("Pilihan pesanan salah!");
         }
     }
 
     public void editHapus(){
-        System.out.println(" ");
-        System.out.println("========Edit/Hapus========");
-        System.out.println("1. Edit Pesanan");
-        System.out.println("2. Hapus Pesanan");
-        System.out.print("Pilih Edit/Hapus: ");
-        pilihEdit = input.nextLine();
-        do {
-            switch (pilihEdit) {
-                case "1":
-                    editPesan();
-                    break;
-                
-                case "2":
-                    hapusPesan();
-                    break;
+        if (!pesanan.isEmpty()) {
+            do {
+                System.out.println(" ");
+                System.out.println("========Edit/Hapus========");
+                System.out.println("1. Edit Pesanan");
+                System.out.println("2. Hapus Pesanan");
+                System.out.print("Pilih Edit/Hapus: ");
+                pilihEdit = input.nextLine();
+                switch (pilihEdit) {
+                    case "1":
+                        editPesan();
+                        break;
+                    
+                    case "2":
+                        hapusPesan();
+                        break;
+    
+                    default:
+                        System.out.println("Pilihan tidak tersedia!");
+                        break;
+                }
+                System.out.print("Apakah ingin lanjut edit/hapus paket? (y/n): ");
+                lanjut = input.nextLine();
+            } while (lanjut.equalsIgnoreCase("y"));
+        } else {
+            System.out.println("Pesanan masih kosong!");
+        }
+    }
 
-                default:
-                    System.out.println("Pilihan tidak tersedia!");
-                    break;
+    public void lihatPesanan(){
+        if (!pesanan.isEmpty()) {
+            System.out.println("======== Pesanan Anda ========");
+            for (int i = 0; i<pesanan.size(); i++){
+                System.out.print(i+1);
+                System.out.println(". "+pesanan.get(i).toString());
             }
-            System.out.print("Apakah ingin lanjut edit/hapus paket? (y/n): ");
-            lanjut = input.nextLine();
-        } while (lanjut.equalsIgnoreCase("y"));
+        } else {
+            System.out.println("Pesanan masih kosong!");
+        }
     }
 
     public void pemesanan(){
@@ -286,7 +311,15 @@ public class RestoController {
                 case "3":
                     menuPaket();
                     break;
-        
+                
+                case "4":
+                    editHapus();
+                    break;
+                
+                case "5":
+                    lihatPesanan();
+                    break;
+
                 default:
                     System.out.println("Pilihan tidak tersedia!");
                     break;
