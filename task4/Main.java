@@ -42,7 +42,7 @@ public class Main {
 
         System.out.print("Apakah ingin melanjutkan ke pemesanan/pembayaran? (y|n)");
         opsi = input.nextLine();
-    } while (opsi.equalsIgnoreCase("n"));
+    } while (opsi.equalsIgnoreCase("y"));
 
     System.out.println("Terima kasih. Sampai jumpa kembali!");
   }
