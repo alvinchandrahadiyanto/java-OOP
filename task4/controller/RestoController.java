@@ -229,7 +229,9 @@ public class RestoController {
                     System.out.println("Pilihan tidak tersedia!");
                     break;
             }
-        } while (false);
+            System.out.print("Apakah ingin lanjut edit/hapus paket? (y/n): ");
+            lanjut = input.nextLine();
+        } while (lanjut.equalsIgnoreCase("y"));
     }
 
     public void pemesanan(){
