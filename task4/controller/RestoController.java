@@ -42,19 +42,19 @@ public class RestoController {
 
     public void menuList(){
         System.out.println(" ");
-        System.out.println("========Menu Makanan========");
+        System.out.println("======== Menu Makanan ========");
         for (int i = 0; i < makanan.size(); i++) {
             System.out.print(i+1);
             System.out.println(". "+makanan.get(i).toString());
         }
         System.out.println(" ");
-        System.out.println("========Menu Minuman========");
+        System.out.println("======== Menu Minuman ========");
         for (int i = 0; i<minuman.size(); i++){
             System.out.print(i+1);
             System.out.println(". "+minuman.get(i).toString());
         }
         System.out.println(" ");
-        System.out.println("========Menu Paket========");
+        System.out.println("======== Menu Paket ========");
         for(int i = 0; i<paket.size();i++){
             System.out.print(i+1);
             System.out.println(". "+paket.get(i).toString());
@@ -65,7 +65,7 @@ public class RestoController {
     public void menuMakan(){
         do {
             System.out.println(" ");
-            System.out.println("========Menu Makanan========");
+            System.out.println("======== Menu Makanan ========");
             for (int i = 0; i < makanan.size(); i++) {
                 System.out.print(i+1);
                 System.out.println(". "+makanan.get(i).toString());
@@ -75,7 +75,7 @@ public class RestoController {
             Integer pilih=Integer.parseInt(input.nextLine());
             pilih=pilih-1;
             Boolean pesanKosong=true;
-            if (!((pilih>makanan.size())||(pilih<0))) {
+            if (!((pilih>=makanan.size())||(pilih<0))) {
                 for (int i = 0; i < pesanan.size(); i++) {
                     if (pesanan.get(i).getTitle().equals(makanan.get(pilih).getTitle())) {
                         pesanKosong=false;
@@ -108,7 +108,7 @@ public class RestoController {
     public void menuMinum(){
         do {
             System.out.println(" ");
-            System.out.println("========Menu Minuman========");
+            System.out.println("======== Menu Minuman ========");
             for (int i = 0; i<minuman.size(); i++){
                 System.out.print(i+1);
                 System.out.println(". "+minuman.get(i).toString());
@@ -118,7 +118,7 @@ public class RestoController {
             Integer pilih=Integer.parseInt(input.nextLine());
             pilih=pilih-1;
             Boolean pesanKosong=true;
-            if (!((pilih>minuman.size())||(pilih<0))) {
+            if (!((pilih>=minuman.size())||(pilih<0))) {
                 for (int i = 0; i < pesanan.size(); i++) {
                     if (pesanan.get(i).getTitle().equals(minuman.get(pilih).getTitle())) {
                         pesanKosong=false;
@@ -151,7 +151,7 @@ public class RestoController {
     public void menuPaket(){
         do {
             System.out.println(" ");
-            System.out.println("========Menu Paket========");
+            System.out.println("======== Menu Paket ========");
             for(int i = 0; i<paket.size();i++){
                 System.out.print(i+1);
                 System.out.println(". "+paket.get(i).toString());
@@ -161,7 +161,7 @@ public class RestoController {
             Integer pilih=Integer.parseInt(input.nextLine());
             pilih=pilih-1;
             Boolean pesanKosong=true;
-            if (!((pilih>paket.size())||(pilih<0))) {
+            if (!((pilih>=paket.size())||(pilih<0))) {
                 for (int i = 0; i < pesanan.size(); i++) {
                     if (pesanan.get(i).getTitle().equals(paket.get(pilih).getTitle())) {
                         pesanKosong=false;
@@ -192,23 +192,48 @@ public class RestoController {
     }
 
     public void editPesan(){
+        System.out.println("======== Pesanan Anda ========");
         for (int i = 0; i<pesanan.size(); i++){
             System.out.print(i+1);
             System.out.println(". "+pesanan.get(i).toString());
         }
-        System.out.print("Masukan pilihan pesanan: ");
+        System.out.print("Masukan pilihan pesanan untuk diedit: ");
         Integer pilih=Integer.parseInt(input.nextLine());
         pilih=pilih-1;
-        System.out.print("Edit jumlah pesanan: ");
-        Integer jumlah=Integer.parseInt(input.nextLine());
-        if (jumlah<=0) {
+        if (!((pilih>=pesanan.size())||(pilih<0))) {
+            System.out.print("Edit jumlah pesanan: ");
+            Integer jumlah=Integer.parseInt(input.nextLine());
+            if (jumlah<=0) {
+                System.out.print("Apakah ingin menghapus pesanan? (y/n): ");
+                String confirm = input.nextLine();
+                if (confirm.equalsIgnoreCase("y")) {
+                    pesanan.remove(pilih);
+                }
+            } else {
+                pesanan.get(pilih).setJlmhPesan(jumlah);
+            }
+        } else {
+            System.out.println("Pilihan pesanan salah");
+        }
+    }
+
+    public void hapusPesan(){
+        System.out.println("======== Pesanan Anda ========");
+        for (int i = 0; i<pesanan.size(); i++){
+            System.out.print(i+1);
+            System.out.println(". "+pesanan.get(i).toString());
+        }
+        System.out.print("Masukan pilihan pesanan untuk dihapus: ");
+        Integer pilih=Integer.parseInt(input.nextLine());
+        pilih=pilih-1;
+        if (!((pilih>=pesanan.size())||(pilih<0))) {
             System.out.print("Apakah ingin menghapus pesanan? (y/n): ");
             String confirm = input.nextLine();
             if (confirm.equalsIgnoreCase("y")) {
                 pesanan.remove(pilih);
             }
         } else {
-            pesanan.get(pilih).setJlmhPesan(jumlah);
+            System.out.println("Pilihan pesanan salah");
         }
     }
 
@@ -241,6 +266,7 @@ public class RestoController {
         System.out.println("2. Minuman");
         System.out.println("3. Paket");
         System.out.println("4. Edit/Hapus Pesanan");
+        System.out.println("5. Lihat Pesanan");
         System.out.print("Pilih Pesan: ");
         pilihPesan = input.nextLine();
         do {
