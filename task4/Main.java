@@ -10,6 +10,7 @@ public class Main {
     static RestoController resto = new RestoController();
     
   public static void menuApp() {
+    System.out.println(" ");
     System.out.println("======== SISTEM PEMESANAN RESTORAN ========");
     System.out.println("1. Lihat daftar Menu");
     System.out.println("2. Input Pemesanan");

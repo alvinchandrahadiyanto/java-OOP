@@ -62,12 +62,14 @@ public class RestoController {
     }
 
     public void menuMakan(){
-        System.out.println("========Menu Makanan========");
-        for (int i = 0; i < makanan.size(); i++) {
-            System.out.print(i+1);
-            System.out.println(". "+makanan.get(i).toString());
-        }
         do {
+            System.out.println(" ");
+            System.out.println("========Menu Makanan========");
+            for (int i = 0; i < makanan.size(); i++) {
+                System.out.print(i+1);
+                System.out.println(". "+makanan.get(i).toString());
+            }
+            System.out.println(" ");
             System.out.print("Masukan pilihan makanan: ");
             Integer pilih=Integer.parseInt(input.nextLine());
             pilih=pilih-1;
@@ -103,12 +105,14 @@ public class RestoController {
     }
 
     public void menuMinum(){
-        System.out.println("========Menu Minuman========");
-        for (int i = 0; i<minuman.size(); i++){
-            System.out.print(i+1);
-            System.out.println(". "+minuman.get(i).toString());
-        }
         do {
+            System.out.println(" ");
+            System.out.println("========Menu Minuman========");
+            for (int i = 0; i<minuman.size(); i++){
+                System.out.print(i+1);
+                System.out.println(". "+minuman.get(i).toString());
+            }
+            System.out.println(" ");
             System.out.print("Masukan pilihan minuman");
             Integer pilih=Integer.parseInt(input.nextLine());
             pilih=pilih-1;
@@ -144,12 +148,14 @@ public class RestoController {
     }
 
     public void menuPaket(){
-        System.out.println("========Menu Paket========");
-        for(int i = 0; i<paket.size();i++){
-            System.out.print(i+1);
-            System.out.println(". "+paket.get(i).toString());
-        }
         do {
+            System.out.println(" ");
+            System.out.println("========Menu Paket========");
+            for(int i = 0; i<paket.size();i++){
+                System.out.print(i+1);
+                System.out.println(". "+paket.get(i).toString());
+            }
+            System.out.println(" ");
             System.out.print("Masukan pilihan minuman");
             Integer pilih=Integer.parseInt(input.nextLine());
             pilih=pilih-1;
@@ -185,6 +191,7 @@ public class RestoController {
     }
 
     public void pemesanan(){
+        System.out.println(" ");
         System.out.println("========Pesan========");
         System.out.println("1. Makanan");
         System.out.println("2. Minuman");
