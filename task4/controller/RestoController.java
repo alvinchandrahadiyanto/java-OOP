@@ -249,7 +249,11 @@ public class RestoController {
                 case "1":
                     editPesan();
                     break;
-            
+                
+                case "2":
+                    hapusPesan();
+                    break;
+
                 default:
                     System.out.println("Pilihan tidak tersedia!");
                     break;
