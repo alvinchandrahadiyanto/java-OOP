@@ -1,77 +1,69 @@
 package task4.controller;
 
+import task4.models.Menu;
+import java.util.ArrayList;
+import java.util.List;
+
 public class RestoController {
-    String[] makanan={"Ayam Geprek","Lele","Nasi Putih","Sate Usus"
-                      ,"Sate Kulit","Sate Ati Ampela","Sate Telor Puyuh","Tahu","Tempe"};
-    int[] harga_makanan={14000,10000,4000,3000,3000,3000,3000,1500,1500};
-    String[] minuman={"Teh Manis Hangat","Es Teh Manis","Fanta","Sprite","Coca-cola","Air Mineral","Kopi Hitam"};
-    int[] harga_minum={3000,3000,5000,5000,5000,2500,3000};
-    String[] paket={"Paket A - Ayam Geprek + Nasi + Es Teh Manis","Paket B - Ayam Geprek + Nasi + Tahu + Tempe + Es Teh Manis","Paket C - Ayam Geprek + Nasi + Tahu + Tempe + Sate(Kulit/Usus/Ati Ampela) + Es Teh Manis"};
-    int[] harga_paket={20000,23000,25000};
+    List <Menu> makanan = new ArrayList<>(){{
+        add(new Menu("Ayam Geprek", 14000));
+        add(new Menu("Lele", 10000));
+        add(new Menu("Nasi Putih", 4000));
+        add(new Menu("Sate Usus", 3000));
+        add(new Menu("Sate Kulit", 3000));
+        add(new Menu("Sate Ati Ampela", 3000));
+        add(new Menu("Sate Telor Puyuh", 3000));
+        add(new Menu("Tahu", 1500));
+        add(new Menu("Tempe", 1500));
+    }};
 
-    public void menuList(){
-        System.out.println(" ");
-        System.out.println("========Menu Makanan========");
-        System.out.println("1. Ayam Geprek - 14000");
-        System.out.println("2. Lele - 10000");
-        System.out.println("3. Nasi Putih - 4000");
-        System.out.println("4. Sate Usus - 3000");
-        System.out.println("5. Sate Kulit - 3000");
-        System.out.println("6. Sate Ati Ampela - 3000");
-        System.out.println("7. Sate Telor Puyuh - 3000");
-        System.out.println("8. Tahu - 1500");
-        System.out.println("9. Tempe - 1500");
-        
-        System.out.println("========Menu Minuman========");
-        System.out.println("1. Teh Manis Hangat - 3000");
-        System.out.println("2. Es Teh Manis - 3000");
-        System.out.println("3. Fanta - 5000");
-        System.out.println("4. Sprite - 5000");
-        System.out.println("5. Coca-cola - 5000");
-        System.out.println("6. Air Mineral - 2500");
-        System.out.println("7. Kopi Hitam - 3000");
+    List <Menu> minuman = new ArrayList<>(){{
+        add(new Menu("Teh Manis Hangat", 3000));
+        add(new Menu("Es Teh Manis", 3000));
+        add(new Menu("Fanta", 5000));
+        add(new Menu("Sprite", 5000));
+        add(new Menu("Coca-cola", 5000));
+        add(new Menu("Air Mineral", 2500));
+        add(new Menu("Kopi Hitam", 3000));
+    }};
 
-        System.out.println("========Menu Paket========");
-        System.out.println("1. Paket A - Ayam Geprek + Nasi + Es Teh Manis - 20000");
-        System.out.println("2. Paket B - Ayam Geprek + Nasi + Tahu + Tempe + Es Teh Manis - 23000");
-        System.out.println("3. Paket C - Ayam Geprek + Nasi + Tahu + Tempe + Sate(Kulit/Usus/Ati Ampela) + Es Teh Manis - 25000");
-        System.out.println(" ");
-    }
+    List <Menu> paket = new ArrayList<>(){{
+        add(new Menu("Paket A - Ayam Geprek + Nasi + Es Teh Manis", 20000));
+        add(new Menu("Paket B - Ayam Geprek + Nasi + Tahu + Tempe + Es Teh Manis", 23000));
+        add(new Menu("Paket C - Ayam Geprek + Nasi + Tahu + Tempe + Sate(Kulit/Usus/Ati Ampela) + Es Teh Manis", 25000));
+    }};
 
     public void menuMakan(){
-        System.out.println(" ");
         System.out.println("========Menu Makanan========");
-        System.out.println("1. Ayam Geprek - 14000");
-        System.out.println("2. Lele - 10000");
-        System.out.println("3. Nasi Putih - 4000");
-        System.out.println("4. Sate Usus - 3000");
-        System.out.println("5. Sate Kulit - 3000");
-        System.out.println("6. Sate Ati Ampela - 3000");
-        System.out.println("7. Sate Telor Puyuh - 3000");
-        System.out.println("8. Tahu - 1500");
-        System.out.println("9. Tempe - 1500");
-        System.out.println(" ");
+        for (int i = 0; i < makanan.size(); i++) {
+            System.out.print(i+1);
+            System.out.println(". "+makanan.get(i).toString());
+          }
     }
 
     public void menuMinum(){
-        System.out.println(" ");
         System.out.println("========Menu Minuman========");
-        System.out.println("1. Teh Manis Hangat - 3000");
-        System.out.println("2. Es Teh Manis - 3000");
-        System.out.println("3. Fanta - 5000");
-        System.out.println("4. Sprite - 5000");
-        System.out.println("5. Coca-cola - 5000");
-        System.out.println("6. Air Mineral - 2500");
-        System.out.println("7. Kopi Hitam - 3000");
-        System.out.println(" ");
+        for (int i = 0; i<minuman.size(); i++){
+            System.out.print(i+1);
+            System.out.println(". "+minuman.get(i).toString());
+        }
     }
 
     public void menuPaket(){
-        System.out.println(" ");
         System.out.println("========Menu Paket========");
-        System.out.println("1. Paket A - Ayam Geprek + Nasi + Es Teh Manis - 20000");
-        System.out.println("2. Paket B - Ayam Geprek + Nasi + Tahu + Tempe + Es Teh Manis - 23000");
-        System.out.println("3. Paket C - Ayam Geprek + Nasi + Tahu + Tempe + Sate(Kulit/Usus/Ati Ampela) + Es Teh Manis - 25000");
+        for(int i = 0; i<paket.size();i++){
+            System.out.print(i+1);
+            System.out.println(". "+paket.get(i).toString());
+        }
+    }
+
+    public void menuList(){
+        System.out.println(" ");
+        menuMakan();
+        System.out.println(" ");
+        menuMinum();
+        System.out.println(" ");
+        menuPaket();
         System.out.println(" ");
     }
 }

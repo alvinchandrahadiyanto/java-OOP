@@ -40,7 +40,7 @@ public class Main {
           break;
       }
 
-        System.out.print("Apakah ingin melanjutkan ke pemesanan/pembayaran? (y|n)");
+        System.out.print("Apakah ingin melanjutkan ke pemesanan/pembayaran? (y/n): ");
         opsi = input.nextLine();
     } while (opsi.equalsIgnoreCase("y"));
 

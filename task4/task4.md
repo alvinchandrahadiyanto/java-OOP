@@ -10,3 +10,5 @@ Buatkan program dengan menerapkan prinsip OOP dan ketentuan seperti berikut:
 - Exit / Sign out - selesai
 
 + Requirement: Abstraction Class / Interface yang dibuat method receiptPembayaran
+
+makanan.add(new Menu("a", 1));
