@@ -1,6 +1,7 @@
 package task4.controller;
 
 import task4.models.Menu;
+import task4.models.Order;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -33,9 +34,10 @@ public class RestoController {
         add(new Menu("Paket B - Ayam Geprek + Nasi + Tahu + Tempe + Es Teh Manis", 23000));
         add(new Menu("Paket C - Ayam Geprek + Nasi + Tahu + Tempe + Sate(Kulit/Usus/Ati Ampela) + Es Teh Manis", 25000));
     }};
-
+    List <Order> pesanan = new ArrayList<>();
     static Scanner input = new Scanner(System.in);
     String pilihpesan;
+    String lanjut;
 
     public void menuList(){
         System.out.println(" ");
@@ -65,6 +67,19 @@ public class RestoController {
             System.out.print(i+1);
             System.out.println(". "+makanan.get(i).toString());
         }
+        do {
+            System.out.print("Masukan pilihan makanan: ");
+            Integer pilihMakan=Integer.parseInt(input.nextLine());
+            System.out.print("Masukan jumlah pesanan: ");
+            Integer jumlah=Integer.parseInt(input.nextLine());
+            if (jumlah>0) {
+                pesanan.add(new Order(makanan.get(pilihMakan).getTitle(), makanan.get(pilihMakan).getPrice(), jumlah));
+            } else {
+                System.out.println("jumkah yang dimasukan salah");
+            }
+            System.out.print("Apakah ingin menambah pesanan? (y/n): ");
+            lanjut = input.nextLine();
+        } while (lanjut.equalsIgnoreCase("y"));
     }
 
     public void menuMinum(){
