@@ -69,17 +69,33 @@ public class RestoController {
         }
         do {
             System.out.print("Masukan pilihan makanan: ");
-            Integer pilihMakan=Integer.parseInt(input.nextLine());
-            System.out.print("Masukan jumlah pesanan: ");
-            Integer jumlah=Integer.parseInt(input.nextLine());
-            if (jumlah>0) {
-                pesanan.add(new Order(makanan.get(pilihMakan).getTitle(), makanan.get(pilihMakan).getPrice(), jumlah));
+            Integer pilih=Integer.parseInt(input.nextLine());
+            pilih=pilih-1;
+            Boolean pesanKosong=true;
+            if (!((pilih>makanan.size())||(pilih<0))) {
+                for (int i = 0; i < pesanan.size(); i++) {
+                    if (pesanan.get(i).getTitle().equals(makanan.get(pilih).getTitle())) {
+                        pesanKosong=false;
+                        break;
+                    }
+                }
+                if (pesanKosong) {
+                    System.out.print("Masukan jumlah pesanan: ");
+                    Integer jumlah=Integer.parseInt(input.nextLine());
+                    if (jumlah>0) {
+                        pesanan.add(new Order(makanan.get(pilih).getTitle(), makanan.get(pilih).getPrice(), jumlah));
+                    } else {
+                        System.out.println("jumlah yang dimasukan salah");
+                    }
+                    for (int i = 0; i<pesanan.size(); i++){
+                        System.out.print(i+1);
+                        System.out.println(". "+pesanan.get(i).toString());
+                    }
+                } else {
+                    System.out.println("Pesanan sudah ada");
+                }
             } else {
-                System.out.println("jumlah yang dimasukan salah");
-            }
-            for (int i = 0; i<pesanan.size(); i++){
-                System.out.print(i+1);
-                System.out.println(". "+pesanan.get(i).toString());
+                System.out.println("Pilihan pesanan salah");
             }
             System.out.print("Apakah ingin menambah pesanan? (y/n): ");
             lanjut = input.nextLine();
@@ -92,6 +108,39 @@ public class RestoController {
             System.out.print(i+1);
             System.out.println(". "+minuman.get(i).toString());
         }
+        do {
+            System.out.print("Masukan pilihan minuman");
+            Integer pilih=Integer.parseInt(input.nextLine());
+            pilih=pilih-1;
+            Boolean pesanKosong=true;
+            if (!((pilih>minuman.size())||(pilih<0))) {
+                for (int i = 0; i < pesanan.size(); i++) {
+                    if (pesanan.get(i).getTitle().equals(minuman.get(pilih).getTitle())) {
+                        pesanKosong=false;
+                        break;
+                    }
+                }
+                if (pesanKosong) {
+                    System.out.print("Masukan jumlah pesanan: ");
+                    Integer jumlah=Integer.parseInt(input.nextLine());
+                    if (jumlah>0) {
+                        pesanan.add(new Order(minuman.get(pilih).getTitle(), minuman.get(pilih).getPrice(), jumlah));
+                    } else {
+                        System.out.println("jumlah yang dimasukan salah");
+                    }
+                    for (int i = 0; i<pesanan.size(); i++){
+                        System.out.print(i+1);
+                        System.out.println(". "+pesanan.get(i).toString());
+                    }
+                } else {
+                    System.out.println("Pesanan sudah ada");
+                }
+            } else {
+                System.out.println("Pilihan pesanan salah");
+            }
+            System.out.print("Apakah ingin menambah pesanan? (y/n): ");
+            lanjut = input.nextLine();
+        } while (lanjut.equalsIgnoreCase("y"));
     }
 
     public void menuPaket(){
@@ -100,10 +149,46 @@ public class RestoController {
             System.out.print(i+1);
             System.out.println(". "+paket.get(i).toString());
         }
+        do {
+            System.out.print("Masukan pilihan minuman");
+            Integer pilih=Integer.parseInt(input.nextLine());
+            pilih=pilih-1;
+            Boolean pesanKosong=true;
+            if (!((pilih>paket.size())||(pilih<0))) {
+                for (int i = 0; i < pesanan.size(); i++) {
+                    if (pesanan.get(i).getTitle().equals(paket.get(pilih).getTitle())) {
+                        pesanKosong=false;
+                        break;
+                    }
+                }
+                if (pesanKosong) {
+                    System.out.print("Masukan jumlah pesanan: ");
+                    Integer jumlah=Integer.parseInt(input.nextLine());
+                    if (jumlah>0) {
+                        pesanan.add(new Order(paket.get(pilih).getTitle(), paket.get(pilih).getPrice(), jumlah));
+                    } else {
+                        System.out.println("jumlah yang dimasukan salah");
+                    }
+                    for (int i = 0; i<pesanan.size(); i++){
+                        System.out.print(i+1);
+                        System.out.println(". "+pesanan.get(i).toString());
+                    }
+                } else {
+                    System.out.println("Pesanan sudah ada");
+                }
+            } else {
+                System.out.println("Pilihan pesanan salah");
+            }
+            System.out.print("Apakah ingin menambah pesanan? (y/n): ");
+            lanjut = input.nextLine();
+        } while (lanjut.equalsIgnoreCase("y"));
     }
 
     public void pemesanan(){
-        System.out.println("========Pemesanan========");
+        System.out.println("========Pesan========");
+        System.out.println("1. Makanan");
+        System.out.println("2. Minuman");
+        System.out.println("3. Paket");
         pilihpesan = input.nextLine();
         switch (pilihpesan) {
             case "1":

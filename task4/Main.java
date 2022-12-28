@@ -27,7 +27,7 @@ public class Main {
             break;
 
         case "2":
-            System.out.println("Opsi 2");
+            resto.pemesanan();
             break;
 
         case "3":
