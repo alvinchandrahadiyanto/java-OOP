@@ -4,11 +4,13 @@ import dao.models.Book;
 import dao.repository.BookRepository;
 import dao.services.DaoService;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class BookController {
   private DaoService<Book, Integer> bookDao = new BookRepository();
   Book book = new Book();
+  private List<Book> booklist;
   static Scanner input = new Scanner(System.in);
   static String opsi;
   static String judul;
@@ -19,7 +21,10 @@ public class BookController {
     if(bookDao.findAll().isEmpty()){
       System.out.println("Buku Kosong");
     }else{
+      booklist=bookDao.findAll();
       System.out.println("Semua Data Buku");
+      // ditambahkan for untuk booklist.get yang ditampilkan berdasar fornya
+      booklist.get(0);
       System.out.println(bookDao.findAll());
     }
   }
