@@ -23,7 +23,6 @@ public class Main {
 
       switch (opsi) {
         case "1":
-            System.out.println("Opsi 1");
             resto.menuList();
             break;
 

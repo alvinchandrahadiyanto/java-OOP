@@ -3,6 +3,7 @@ package task4.controller;
 import task4.models.Menu;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class RestoController {
     List <Menu> makanan = new ArrayList<>(){{
@@ -33,12 +34,37 @@ public class RestoController {
         add(new Menu("Paket C - Ayam Geprek + Nasi + Tahu + Tempe + Sate(Kulit/Usus/Ati Ampela) + Es Teh Manis", 25000));
     }};
 
+    static Scanner input = new Scanner(System.in);
+    String pilihpesan;
+
+    public void menuList(){
+        System.out.println(" ");
+        System.out.println("========Menu Makanan========");
+        for (int i = 0; i < makanan.size(); i++) {
+            System.out.print(i+1);
+            System.out.println(". "+makanan.get(i).toString());
+        }
+        System.out.println(" ");
+        System.out.println("========Menu Minuman========");
+        for (int i = 0; i<minuman.size(); i++){
+            System.out.print(i+1);
+            System.out.println(". "+minuman.get(i).toString());
+        }
+        System.out.println(" ");
+        System.out.println("========Menu Paket========");
+        for(int i = 0; i<paket.size();i++){
+            System.out.print(i+1);
+            System.out.println(". "+paket.get(i).toString());
+        }
+        System.out.println(" ");
+    }
+
     public void menuMakan(){
         System.out.println("========Menu Makanan========");
         for (int i = 0; i < makanan.size(); i++) {
             System.out.print(i+1);
             System.out.println(". "+makanan.get(i).toString());
-          }
+        }
     }
 
     public void menuMinum(){
@@ -57,13 +83,25 @@ public class RestoController {
         }
     }
 
-    public void menuList(){
-        System.out.println(" ");
-        menuMakan();
-        System.out.println(" ");
-        menuMinum();
-        System.out.println(" ");
-        menuPaket();
-        System.out.println(" ");
+    public void pemesanan(){
+        System.out.println("========Pemesanan========");
+        pilihpesan = input.nextLine();
+        switch (pilihpesan) {
+            case "1":
+                menuMakan();
+                break;
+    
+            case "2":
+                menuMinum();
+                break;
+    
+            case "3":
+                menuPaket();
+                break;
+    
+            default:
+              System.out.println("Pilihan tidak tersedia!");
+              break;
+          }
     }
 }
