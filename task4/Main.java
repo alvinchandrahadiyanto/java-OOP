@@ -33,7 +33,7 @@ public class Main {
             break;
 
         case "3":
-            System.out.println("Opsi 3");
+            resto.pembayaran();
             break;
 
         default:
