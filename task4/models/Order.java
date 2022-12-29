@@ -43,6 +43,6 @@ public class Order {
 
     @Override
     public String toString() {
-        return title + "\n" + price + "x" + jlmhPesan + " = " + getTotalSementara();
+        return title + "\n" +"   "+ price + " x " + jlmhPesan + " = " + getTotalSementara();
     }
 }

@@ -15,6 +15,7 @@ public class Main {
     System.out.println("1. Lihat daftar Menu");
     System.out.println("2. Input Pemesanan");
     System.out.println("3. Pembayaran");
+    System.out.println(" ");
     System.out.print("Pilihan: ");
     opsi = input.nextLine();
   }
