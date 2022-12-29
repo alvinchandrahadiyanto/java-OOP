@@ -17,21 +17,27 @@ public class BookController {
   static String pembuat;
   static Integer idbook;
 
+  public void allbooks(){
+    booklist=bookDao.findAll();
+    System.out.println(" ");
+    System.out.println("Semua Data Buku");
+    for (int i = 0; i < booklist.size(); i++) {
+      System.out.println(booklist.get(i).toString());
+    }
+  }
+
   public void getBooks(){
     if(bookDao.findAll().isEmpty()){
-      System.out.println("Buku Kosong");
+      System.out.println("Buku Kosong!");
     }else{
-      booklist=bookDao.findAll();
-      System.out.println("Semua Data Buku");
-      // ditambahkan for untuk booklist.get yang ditampilkan berdasar fornya
-      booklist.get(0);
-      System.out.println(bookDao.findAll());
+      allbooks();
     }
   }
 
   public void getBookById(){
     if(bookDao.findAll().isEmpty()){
-      System.out.println("Buku Kosong");
+      System.out.println("Buku Kosong!");
+      System.out.println(" ");
     }else{
       System.out.println("Cari Data Buku");
       System.out.print("Pilihan ID Buku yang akan dicari: ");
@@ -39,12 +45,13 @@ public class BookController {
       if(idbook>bookDao.findAll().size()){
         System.out.println("Id tidak ada");
       }else{
-        System.out.println(bookDao.findById(idbook));
+        allbooks();
       }
     }
   }
 
   public void saveBook(){
+    System.out.println(" ");
     System.out.println("Tambah Data Buku");
     System.out.print("Pilihan Judul Buku: ");
     judul = input.nextLine();
@@ -59,7 +66,8 @@ public class BookController {
 
   public void updateBook(){
     if(bookDao.findAll().isEmpty()){
-      System.out.println("Buku Kosong");
+      System.out.println("Buku Kosong!");
+      System.out.println(" ");
     }else{
       System.out.println(bookDao.findAll());
       System.out.println("Edit Data Buku");
@@ -78,14 +86,15 @@ public class BookController {
         book.setAuthor(pembuat);
         // save data
         bookDao.update(book,idbook);
-        System.out.println(bookDao.findAll());
+        allbooks();
       }
     }
   }
 
   public void deleteBook(){
     if(bookDao.findAll().isEmpty()){
-      System.out.println("Buku Kosong");
+      System.out.println("Buku Kosong!");
+      System.out.println(" ");
     }else{
       System.out.println(bookDao.findAll());
       System.out.println("Hapus Data Buku");
@@ -95,7 +104,9 @@ public class BookController {
         System.out.println("Id tidak ada");
       }else{
         bookDao.delete(idbook);
-        System.out.println(bookDao.findAll());
+        System.out.println("Buku Sudah Terhapus!");
+        System.out.println(" ");
+        allbooks();
       }
     }
   }

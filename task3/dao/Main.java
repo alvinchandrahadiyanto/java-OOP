@@ -16,6 +16,7 @@ public class Main {
     System.out.println("3. Tambah Data Buku");
     System.out.println("4. Edit Data Buku");
     System.out.println("5. Hapus Data Buku");
+    System.out.println(" ");
     System.out.print("Pilihan User: ");
     opsi = input.nextLine();
   }
@@ -47,6 +48,7 @@ public class Main {
 
         default:
           System.out.println("Pilihan tidak tersedia!");
+          System.out.println(" ");
           break;
       }
 

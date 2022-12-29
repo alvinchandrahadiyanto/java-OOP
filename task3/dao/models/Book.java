@@ -18,7 +18,7 @@ public class Book {
 
   @Override
   public String toString() {
-    return "Book [title=" + title + ", author=" + author + "]";
+    return "\n"+"Judul: " + title +"\n"+ "author: " + author + "\n";
   }
 
   public void setAuthor(String author) {
