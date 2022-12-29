@@ -2,6 +2,8 @@ package task4.controller;
 
 import task4.models.Menu;
 import task4.models.Order;
+
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -36,6 +38,7 @@ public class RestoController {
     }};
     List <Order> pesanan = new ArrayList<>();
     static Scanner input = new Scanner(System.in);
+    LocalDateTime localDateTime = LocalDateTime.now();
     String pilihPesan;
     String pilihEdit;
     String lanjut;
@@ -237,7 +240,7 @@ public class RestoController {
             System.out.print("Apakah ingin menghapus pesanan? (y/n): ");
             String confirm = input.nextLine();
             if (confirm.equalsIgnoreCase("y")) {
-                pesanan.remove(pilih);
+                pesanan.remove((int)pilih);
                 System.out.println("Pesanan sudah dihapus!");
             }
         } else {
@@ -293,7 +296,7 @@ public class RestoController {
     public void pemesanan(){
         do {
             System.out.println(" ");
-            System.out.println("========Pesan========");
+            System.out.println("======== Pesan ========");
             System.out.println("1. Makanan");
             System.out.println("2. Minuman");
             System.out.println("3. Paket");
@@ -335,12 +338,36 @@ public class RestoController {
     public void pembayaran(){
         if (!pesanan.isEmpty()) {
             float totalTanpaPPN=0;
+            float totalDenganPPN=0;
+            float cash;
             for (int i = 0; i < pesanan.size(); i++) {
                 totalTanpaPPN=totalTanpaPPN+pesanan.get(i).getTotalSementara();
             }
+            totalDenganPPN=(float) (totalTanpaPPN+totalTanpaPPN*(0.11));
             do {
                 lihatPesanan();
-            } while (false);
+                System.out.print("Cash: ");
+                cash = input.nextFloat();
+                if (cash>=totalDenganPPN) {
+                    Float kembalian = cash-totalDenganPPN;
+                    System.out.println("======== Bukti Pembayaran ========");
+                    System.out.println(localDateTime);
+                    lihatListPesanan();
+                    System.out.print("Total Harga Tanpa PPN: ");
+                    System.out.println(totalTanpaPPN);
+                    System.out.print("PPN: ");
+                    System.out.println(totalTanpaPPN*(0.11));
+                    System.out.print("Total Harga Dengan PPN: ");
+                    System.out.println(totalDenganPPN);
+                    System.out.print("Uang Tunai: ");
+                    System.out.println(cash);
+                    System.out.print("Kembalian: ");
+                    System.out.println(kembalian);
+                    System.out.println("Terima kasih. Silakan Datang kembali!");
+                } else {
+                    System.out.println("Uang yang diberikan kurang.");
+                }
+            } while (cash<totalDenganPPN);
         } else {
             System.out.println("Pesanan masih kosong!");
         }
