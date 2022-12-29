@@ -238,6 +238,7 @@ public class RestoController {
             String confirm = input.nextLine();
             if (confirm.equalsIgnoreCase("y")) {
                 pesanan.remove(pilih);
+                System.out.println("Pesanan sudah dihapus!");
             }
         } else {
             System.out.println("Pilihan pesanan salah!");
@@ -329,5 +330,19 @@ public class RestoController {
             System.out.print("Apakah ingin menambah/edit/hapus paket? (y/n): ");
             lanjut = input.nextLine();
         } while (lanjut.equalsIgnoreCase("y"));
+    }
+
+    public void pembayaran(){
+        if (!pesanan.isEmpty()) {
+            float totalTanpaPPN=0;
+            for (int i = 0; i < pesanan.size(); i++) {
+                totalTanpaPPN=totalTanpaPPN+pesanan.get(i).getTotalSementara();
+            }
+            do {
+                lihatPesanan();
+            } while (false);
+        } else {
+            System.out.println("Pesanan masih kosong!");
+        }
     }
 }
