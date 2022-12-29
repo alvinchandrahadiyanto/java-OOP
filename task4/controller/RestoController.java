@@ -108,9 +108,11 @@ public class RestoController {
                     lihatListPesanan();
                 } else {
                     System.out.println("Pesanan sudah ada!");
+                    System.out.println(" ");
                 }
             } else {
                 System.out.println("Pilihan pesanan salah!");
+                System.out.println(" ");
             }
             System.out.print("Apakah ingin menambah makanan? (y/n): ");
             lanjut = input.nextLine();
@@ -144,13 +146,16 @@ public class RestoController {
                         pesanan.add(new Order(minuman.get(pilih).getTitle(), minuman.get(pilih).getPrice(), jumlah));
                     } else {
                         System.out.println("jumlah yang dimasukan salah");
+                        System.out.println(" ");
                     }
                     lihatListPesanan();
                 } else {
                     System.out.println("Pesanan sudah ada!");
+                    System.out.println(" ");
                 }
             } else {
                 System.out.println("Pilihan pesanan salah!");
+                System.out.println(" ");
             }
             System.out.print("Apakah ingin menambah minuman? (y/n): ");
             lanjut = input.nextLine();
@@ -184,13 +189,16 @@ public class RestoController {
                         pesanan.add(new Order(paket.get(pilih).getTitle(), paket.get(pilih).getPrice(), jumlah));
                     } else {
                         System.out.println("jumlah yang dimasukan salah");
+                        System.out.println(" ");
                     }
                     lihatListPesanan();
                 } else {
                     System.out.println("Pesanan sudah ada!");
+                    System.out.println(" ");
                 }
             } else {
                 System.out.println("Pilihan pesanan salah!");
+                System.out.println(" ");
             }
             System.out.print("Apakah ingin menambah paket? (y/n): ");
             lanjut = input.nextLine();
@@ -215,13 +223,17 @@ public class RestoController {
                 System.out.print("Apakah ingin menghapus pesanan? (y/n): ");
                 String confirm = input.nextLine();
                 if (confirm.equalsIgnoreCase("y")) {
-                    pesanan.remove(pilih);
+                    pesanan.remove((int)pilih);
+                    System.out.println(" ");
+                    System.out.println("Pesanan sudah dihapus!");
+                    System.out.println(" ");
                 }
             } else {
                 pesanan.get(pilih).setJlmhPesan(jumlah);
             }
         } else {
             System.out.println("Pilihan pesanan salah!");
+            System.out.println(" ");
         }
     }
 
@@ -241,10 +253,13 @@ public class RestoController {
             String confirm = input.nextLine();
             if (confirm.equalsIgnoreCase("y")) {
                 pesanan.remove((int)pilih);
+                System.out.println(" ");
                 System.out.println("Pesanan sudah dihapus!");
+                System.out.println(" ");
             }
         } else {
             System.out.println("Pilihan pesanan salah!");
+            System.out.println(" ");
         }
     }
 
@@ -276,6 +291,7 @@ public class RestoController {
             } while (lanjut.equalsIgnoreCase("y"));
         } else {
             System.out.println("Pesanan masih kosong!");
+            System.out.println(" ");
         }
     }
 
@@ -290,6 +306,7 @@ public class RestoController {
             System.out.println(" ");
         } else {
             System.out.println("Pesanan masih kosong!");
+            System.out.println(" ");
         }
     }
 
@@ -328,6 +345,7 @@ public class RestoController {
 
                 default:
                     System.out.println("Pilihan tidak tersedia!");
+                    System.out.println(" ");
                     break;
             }
             System.out.print("Apakah ingin menambah/edit/hapus paket? (y/n): ");
@@ -346,10 +364,13 @@ public class RestoController {
             totalDenganPPN=(float) (totalTanpaPPN+totalTanpaPPN*(0.11));
             do {
                 lihatPesanan();
+                System.out.print("Total Harga Setelah PPN: ");
+                System.out.println(totalDenganPPN);
                 System.out.print("Cash: ");
                 cash = input.nextFloat();
                 if (cash>=totalDenganPPN) {
                     Float kembalian = cash-totalDenganPPN;
+                    System.out.println(" ");
                     System.out.println("======== Bukti Pembayaran ========");
                     System.out.println(localDateTime);
                     lihatListPesanan();
@@ -363,13 +384,17 @@ public class RestoController {
                     System.out.println(cash);
                     System.out.print("Kembalian: ");
                     System.out.println(kembalian);
+                    System.out.println(" ");
                     System.out.println("Terima kasih. Silakan Datang kembali!");
+                    System.out.println(" ");
                 } else {
                     System.out.println("Uang yang diberikan kurang.");
+                    System.out.println(" ");
                 }
             } while (cash<totalDenganPPN);
         } else {
             System.out.println("Pesanan masih kosong!");
+            System.out.println(" ");
         }
     }
 }

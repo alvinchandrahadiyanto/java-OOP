@@ -38,13 +38,15 @@ public class Main {
 
         default:
           System.out.println("Pilihan tidak tersedia!");
+          System.out.println(" ");
           break;
       }
 
         System.out.print("Apakah ingin melanjutkan ke pemesanan/pembayaran? (y/n): ");
         opsi = input.nextLine();
     } while (opsi.equalsIgnoreCase("y"));
-
+    System.out.println(" ");
     System.out.println("Terima kasih. Sampai jumpa kembali!");
+    System.out.println(" ");
   }
 }
